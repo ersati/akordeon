@@ -5,8 +5,10 @@ const wrapper = document.querySelector('.item-wrapper');
 
 const item = document.querySelector('.item');
 const arrow = document.querySelector('.arrow');
+const articles = document.querySelectorAll('article');
 
-console.log(wrapper, item, arrow);
+
+console.log(articles);
 
 arrow.addEventListener('click', () => {
   console.log('ok');
