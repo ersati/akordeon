@@ -30,51 +30,57 @@ console.log(articles, texts, bordersArrow);
 //   }
 // });
 
-svgs[0].addEventListener('click', () => {
-  borders[0].classList.remove('border-transparent');
-  borders[0].classList.add('border-indigo');
-  borders[0].classList.add('bg-grey-lightest');
-  
-  texts[0].classList.add('text-indigo');
-  bordersArrow[0].classList.add('border-indigo');
-  svgs[0].setAttribute('stroke', 'white');
-  bordersArrow[0].classList.add('round-item');
-});
+// svgs[0].addEventListener('click', () => {
+//   borders[0].classList.remove('border-transparent');
+//   borders[0].classList.add('border-indigo');
+//   borders[0].classList.add('bg-grey-lightest');
 
+//   texts[0].classList.add('text-indigo');
+//   bordersArrow[0].classList.add('border-indigo');
+//   svgs[0].setAttribute('stroke', 'white');
+//   bordersArrow[0].classList.add('round-item');
+// });
 
-svgs[1].addEventListener('click', (e) => {
+svgs[1].addEventListener('click', e => {
   /*elements*/
-  const arrow = e.target
+  const arrow = e.target;
   const borderArrow = arrow.parentNode;
   const text = borderArrow.previousElementSibling;
   const header = borderArrow.parentNode;
   const border = header.parentNode;
-  const divWithItems = header.nextElementSibling
-  const itemWrapper = divWithItems.firstElementChild
-  const item = itemWrapper.firstElementChild
-/*elements*/
+  const divWithItems = header.nextElementSibling;
+  const itemWrapper = divWithItems.firstElementChild;
+  const item = itemWrapper.firstElementChild;
+  /*elements*/
 
-  
-if(divWithItems){
-  arrow.classList.toggle('round-item');
-  item.classList.toggle('hide-item');
-  if (item.classList.contains('hide-item')) {
-    setTimeout(function() {
-      item.style.display = 'none';
-    }, 1000);
-  } else {
-    item.style.display = '';
+  if (divWithItems) {
+    arrow.classList.toggle('round-item');
+    item.classList.toggle('hide-item');
+    if (item.classList.contains('hide-item')) {
+      setTimeout(function() {
+        item.style.display = 'none';
+      }, 1000);
+    } else {
+      item.style.display = '';
+    }
   }
-}
 
-border.classList.remove('border-transparent');
-  border.classList.add('border-indigo');
-  border.classList.add('bg-grey-lightest');
-  
-  text.classList.add('text-indigo');
-  borderArrow.classList.add('border-indigo');
-  // svgs[0].setAttribute('stroke', 'white');
-  // borderArrow.classList.add('round-item');
+  border.classList.toggle('border-transparent');
+  border.classList.toggle('border-indigo');
+  border.classList.toggle('bg-grey-lightest');
 
-  console.log( itemWrapper, item)
-})
+  // text.classList.toggle('text-indigo');
+
+  borderArrow.classList.toggle('border-indigo');
+  borderArrow.classList.toggle('border-grey');
+  borderArrow.classList.toggle('bg-indigo');
+
+  // if (borderArrow.contains('border-indigo')) {
+  //   arrow.setAttribute('stroke', '#606F7B');
+  // } else {
+  //   arrow.setAttribute('stroke', 'white');
+  // }
+  borderArrow.classList.add('round-item');
+
+  console.log(borderArrow);
+});
