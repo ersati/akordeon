@@ -1,18 +1,18 @@
 // Import stylesheets
 import './style.css';
 
-const wrapper = document.querySelector('.item-wrapper');
+// const wrapper = document.querySelector('.item-wrapper');
 
-const item = document.querySelector('.item');
-const arrow = document.querySelector('.arrow');
-const articles = document.querySelectorAll('article');
-const texts = document.querySelectorAll('article div span');
-const borders = document.querySelectorAll('article > div');
-const bordersArrow = document.querySelectorAll('article header > div');
+// const item = document.querySelector('.item');
+// const arrow = document.querySelector('.arrow');
+// const articles = document.querySelectorAll('article');
+// const texts = document.querySelectorAll('article div span');
+// const borders = document.querySelectorAll('article > div');
+// const bordersArrow = document.querySelectorAll('article header > div');
 const svgs = document.querySelectorAll('article div svg');
 
-svgs[0].setAttribute('stroke', 'red');
-console.log(articles, texts, bordersArrow);
+// svgs[0].setAttribute('stroke', 'red');
+// console.log(articles, texts, bordersArrow);
 
 // arrow.addEventListener('click', () => {
 //   console.log('ok');
@@ -41,46 +41,52 @@ console.log(articles, texts, bordersArrow);
 //   bordersArrow[0].classList.add('round-item');
 // });
 
-svgs[1].addEventListener('click', e => {
-  /*elements*/
-  const arrow = e.target;
-  const borderArrow = arrow.parentNode;
-  const text = borderArrow.previousElementSibling;
-  const header = borderArrow.parentNode;
-  const border = header.parentNode;
-  const divWithItems = header.nextElementSibling;
-  const itemWrapper = divWithItems.firstElementChild;
-  const item = itemWrapper.firstElementChild;
-  /*elements*/
+svgs.forEach(item => {
+  item.addEventListener('click', e => {
+    /*elements*/
+    const arrow = e.target;
+    const borderArrow = arrow.parentNode;
+    const text = borderArrow.previousElementSibling;
+    const header = borderArrow.parentNode;
+    const border = header.parentNode;
+    const divWithItems = header.nextElementSibling;
+    const itemWrapper = divWithItems.firstElementChild;
+    const item = itemWrapper.firstElementChild;
+    /*elements*/
 
-  if (divWithItems) {
-    arrow.classList.toggle('round-item');
-    item.classList.toggle('hide-item');
-    if (item.classList.contains('hide-item')) {
-      setTimeout(function() {
-        item.style.display = 'none';
-      }, 1000);
+    // console.log(arrow, borderArrow, text, header,border,divWithItems,itemWrapper, item)
+    // if (divWithItems) {
+    //   arrow.classList.toggle('round-item');
+    //   item.classList.toggle('hide-item');
+    //   if (item.classList.contains('hide-item')) {
+    //     setTimeout(function() {
+    //       item.style.display = 'none';
+    //     }, 1000);
+    //   } else {
+    //     item.style.display = '';
+    //   }
+    // }
+
+    
+
+    border.classList.toggle('border-transparent');
+    border.classList.toggle('border-indigo');
+    border.classList.toggle('bg-grey-lightest');
+
+    text.classList.toggle('text-indigo');
+
+    borderArrow.classList.toggle('border-indigo');
+    borderArrow.classList.toggle('border-grey');
+    borderArrow.classList.toggle('bg-indigo');
+
+    if (borderArrow.classList.contains('border-indigo')) {
+      arrow.setAttribute('stroke', 'white');
+      borderArrow.classList.remove('round-item');
     } else {
-      item.style.display = '';
+      arrow.setAttribute('stroke', '#606F7B');
+      borderArrow.classList.add('round-item');
     }
-  }
 
-  border.classList.toggle('border-transparent');
-  border.classList.toggle('border-indigo');
-  border.classList.toggle('bg-grey-lightest');
-
-  // text.classList.toggle('text-indigo');
-
-  borderArrow.classList.toggle('border-indigo');
-  borderArrow.classList.toggle('border-grey');
-  borderArrow.classList.toggle('bg-indigo');
-
-  // if (borderArrow.contains('border-indigo')) {
-  //   arrow.setAttribute('stroke', '#606F7B');
-  // } else {
-  //   arrow.setAttribute('stroke', 'white');
-  // }
-  borderArrow.classList.add('round-item');
-
-  console.log(borderArrow);
+    console.log(borderArrow.classList.contains('border-grey'));
+  });
 });
