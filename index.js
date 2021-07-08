@@ -55,19 +55,20 @@ svgs.forEach(item => {
     /*elements*/
 
     // console.log(arrow, borderArrow, text, header,border,divWithItems,itemWrapper, item)
-    // if (divWithItems) {
-    //   arrow.classList.toggle('round-item');
-    //   item.classList.toggle('hide-item');
-    //   if (item.classList.contains('hide-item')) {
-    //     setTimeout(function() {
-    //       item.style.display = 'none';
-    //     }, 1000);
-    //   } else {
-    //     item.style.display = '';
-    //   }
-    // }
-
-    
+    if (
+      document.body.contains(divWithItems) &&
+      document.body.contains(itemWrapper)
+    ) {
+      arrow.classList.toggle('round-item');
+      item.classList.toggle('hide-item');
+      if (item.classList.contains('hide-item')) {
+        setTimeout(function() {
+          item.style.display = 'none';
+        }, 1000);
+      } else {
+        item.style.display = '';
+      }
+    }
 
     border.classList.toggle('border-transparent');
     border.classList.toggle('border-indigo');
