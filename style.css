@@ -13,10 +13,10 @@ h2 {
 
 @keyframes hideOut {
   from {
-    transform: translateY(0px);
+    height: 0%;
   }
   to {
-    transform: translateY(-550px);
+    height: 100%;
   }
 }
 
