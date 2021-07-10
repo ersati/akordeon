@@ -113,9 +113,21 @@ import './style.css';
   // });
 // });
 
-
+function findElements (element) {
+  const arrow = element ; 
+  const borderAroundArrow = element.parentNode;
+  const header = element.parentNode.parentNode;
+  const borderAroundSection = element.parentNode.parentNode;
+  return [arrow, borderAroundArrow, header, borderAroundSection]
+  
+}
 svgs.forEach((el, i ) => {
+  el.dataset.bool = 'false'
   el.addEventListener('click', () =>{
+    el.dataset.bool = 'true';
+    console.log(el.getAttribute('data-bool'))
     console.log(i)
+    const info = findElements(el)
+    console.log(info)
   })
 })
