@@ -2,38 +2,6 @@ h1,
 h2 {
   font-family: Lato;
 }
-
-.item-wrapper {
-  overflow: hidden;
-  transition: 1s;
-}
-.item {
-  transition: 1s;
-}
-
-@keyframes hideOut {
-  from {
-    height: 0%;
-  }
-  to {
-    height: 100%;
-  }
-}
-
-@keyframes roundItem {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(180deg);
-  }
-}
-
-.round-item {
-  transform: rotate(180deg);
-}
-.hide-item {
-  transform: translateY(-550px);
-  transition: 1s;
-  /* display: none; */
+header > div {
+  transition: 0.7s;
 }
