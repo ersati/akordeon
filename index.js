@@ -132,14 +132,38 @@ function showText(elements) {
   border.classList.add('bg-indigo');
   console.log(border);
 }
+
+function hideText(elements) {
+  const arrow = elements[0];
+  const border = elements[1];
+  const header = elements[2];
+  const borderAroundSection = elements[3];
+
+  border.classList.remove('border-indigo');
+  border.classList.remove('bg-indigo');
+  border.classList.add('border-transparent');
+  border.classList.add('bg-grey-lightest');
+  console.log('ok');
+}
 svgs.forEach((el, i) => {
+  // const info = findElements(el);
+  const elements = findElements(el);
+  if (el.dataset.bool == 'true') {
+    showText(elements);
+  } else {
+    hideText(elements);
+  }
+  // hideText(info)
   el.dataset.bool = 'false';
   el.addEventListener('click', () => {
+    svgs.forEach((el, i) => {
+      const elements = findElements(el);
+      hideText(elements);
+    });
     el.dataset.bool = 'true';
     console.log(el.getAttribute('data-bool'));
     console.log(i);
     const info = findElements(el);
-
     showText(info);
   });
 });
